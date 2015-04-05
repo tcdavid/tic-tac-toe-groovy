@@ -1,0 +1,78 @@
+<!doctype html>
+<html ng-app="gameApp">
+	<head>
+		<title>Tic Tac Toe</title>
+		<script src="lib/angularjs/1.3.13/angular.js"></script>
+    	<script src="js/game.js"></script>
+    	<script src="js/DataFactory.js"></script>
+    	<script src="js/GameController.js"></script>
+    	<script src="js/HistoryController.js"></script>
+    	<link rel="stylesheet" type="text/css" media="screen" href="css/application.css">
+    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    	
+	</head>
+
+	<body>
+	
+		<div ng-controller="GameController as game">
+			<div class="gameon">
+				<div class="messageContainer" ng-show="game.gameover">
+            		<div class="winmessage">{{game.winmessage}}<br/> GAME OVER</div>
+        		</div>
+				<div class="tableContainer">
+					<div class="gametable">
+						<div ng-repeat="row in game.rows" class="tablerow">
+					    	<div id="{{column.id}}" class="{{column.class}}" ng-repeat="column in row" >
+					        	<div ng-click="game.markUserClick(column)" class="boxContent{{column.letter}}"> </div>			        	
+					    	</div>
+						</div>
+					</div>
+				</div>
+			
+		        <div class="optionsContainer">
+		            Who should start first? : <select ng-options="obj.value as obj.text for obj in game.startOptions" ng-model="game.start"></select>
+		            <select ng-options="obj.value as obj.text for obj in game.levelOptions" ng-model="game.level"></select>
+		            <input type="button" ng-click="game.startGame()" value="START GAME" />
+		            <br /><br />
+		            <div>Game # {{game.game.sequence}} </div>
+		            <ng-view />
+		        </div>
+	        </div>
+	        
+  		</div>		
+		
+		<div class="gamehistory">
+			<div class="gamehistoryContainer">
+				<div ng-controller="HistoryController as history">
+			
+					<h2 class="sub-header">Game History</h2>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Status</th>
+									<th>Level</th>
+									<th>AI Plays As</th>
+									<th></th>	
+									<th></th>					
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="game in history.games">
+									<td>{{game.sequence}}</td>
+									<td>{{game.status=='WIN' ? game.status + " - " + game.winner : game.status}}</td>
+									<td>{{game.level}}</td>
+									<td>{{game.computerPlaysAs}}</td>
+									<td><a ng-click="history.showGame($event, game.id)" href="/game" >{{game.status=='WIN' || game.status=='DRAW' ? "view" : "resume"}}</a></td>									
+									<td><a ng-click="history.deleteGame($event, game.id)" href="/game">delete</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
