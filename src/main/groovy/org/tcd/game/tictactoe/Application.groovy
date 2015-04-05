@@ -15,13 +15,13 @@ import org.tcd.game.tictactoe.service.GameService;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 	
-	Logger logger = LoggerFactory.getLogger(Application.class);
+	Logger logger = LoggerFactory.getLogger(Application.class)
 	
 	@Autowired
 	GameService service;
 	
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(Application.class, args)
     }
     
     @Override
