@@ -52,7 +52,7 @@ public class GameLogic  {
 	}
 	
 	boolean isInPosition(Player player, int row, int col) {
-		return (player == game.playerAt(row, col))
+		player == game.playerAt(row, col)
 	}
 	
 	Player turn() {
@@ -64,15 +64,15 @@ public class GameLogic  {
 	}
 
 	boolean isOpen(Position position) {
-		return (null == game.playerAt(position))
+		 null == game.playerAt(position)
 	}
 	
 	List<Position> getOpenPositions() {
-		return openPositions(game.movesAsMap())
+		openPositions(game.movesAsMap())
 	}
 	
 	Player lastTurn() {
-		return turn()==Player.X? Player.O: Player.X;
+		turn()==Player.X? Player.O: Player.X;
 	}
 	
 	Position oppositeOpen(Position position1, Position position2) {
@@ -101,7 +101,7 @@ public class GameLogic  {
 	}
 	
 	Position or(Position ...positions){
-		return positions.find { position -> position != null}
+		positions.find { position -> position != null}
 	}
 	
 	Position nextPosition() {
@@ -161,21 +161,19 @@ public class GameLogic  {
 	}
 	
 	Position firstOpen() {
-		return getOpenPositions().first()
+		getOpenPositions().first()
 	}
 	
 	Position win() {
-		return winningPositions(turn(), game.movesAsMap()).find {true}
-
+		winningPositions(turn(), game.movesAsMap()).find {true}
 	}
 	
 	Position block() {
-		return winningPositions(lastTurn(), game.movesAsMap()).find {true}
-
+		winningPositions(lastTurn(), game.movesAsMap()).find {true}
 	}
 		
 	Position fork() {
-		return getOpenPositions()
+		getOpenPositions()
 				.find { position -> multipleWinningPositions(position)}
 	}
 	
@@ -200,38 +198,37 @@ public class GameLogic  {
 	}
 	
 	Position oppositeCorner() {
-		return or (	oppositeOpen(new Position(1,1), new Position(3,3)),
+		or (	oppositeOpen(new Position(1,1), new Position(3,3)),
 					oppositeOpen(new Position(3,3), new Position(1,1)),
 					oppositeOpen(new Position(3,1), new Position(1,3)),
 					oppositeOpen(new Position(1,3), new Position(3,1)))
 	}
 	
 	Position center() {
-		return openPosition(2,2)
+		 openPosition(2,2)
 	}
 	
 	Position sandwich() {
-		return or ( sandwichOpen(new Position(3,3), new Position(1,1)),
+		or ( sandwichOpen(new Position(3,3), new Position(1,1)),
 				    sandwichOpen(new Position(1,1), new Position(3,3)),
 				    sandwichOpen(new Position(3,1), new Position(1,3)),
 				    sandwichOpen(new Position(1,3), new Position(3,1)))
 	}
 	
 	Position emptyCorner() {
-		return or(openPosition(1,1),
-				  openPosition(1,3),
-				  openPosition(3,1),
-				  openPosition(3,3))
+		or( openPosition(1,1),
+			openPosition(1,3),
+			openPosition(3,1),
+			openPosition(3,3))
 	}
 	
 	Position emptySide() {
-		return or(openPosition(1,2),
-				  openPosition(2,1),
-				  openPosition(2,3),
-				  openPosition(3,2))
+		or( openPosition(1,2),
+			openPosition(2,1),
+			openPosition(2,3),
+			openPosition(3,2))
 				
 	}
-	
 	
 	List<Position> getAllPositions() {
 		List<Position> positions = new ArrayList<Position>();
@@ -261,11 +258,11 @@ public class GameLogic  {
 	}
 		
 	static boolean matches(Map<Position, Player> moves, Player player,  List<Position> winningCombo) {
-		return winningCombo.every {position -> moves.get(position) == player}				
+		winningCombo.every {position -> moves.get(position) == player}				
 	}
 	
 	static boolean isWinner(Map<Position, Player> moves, Player player) {
-		return getWinningCombos().any { combo -> matches(moves, player, combo) }
+		getWinningCombos().any { combo -> matches(moves, player, combo) }
 	}
 			
 	boolean isWinnerWithMove(Map<Position, Player> moves, Player player, Position position) {
@@ -275,16 +272,16 @@ public class GameLogic  {
 	}
 	
 	boolean isOpenInMap(Map<Position, Player> moves, Position position) {
-		return (moves.get(position) == null)
+		 moves.get(position) == null
 	}
 	
 	
 	List<Position> openPositions(Map<Position, Player> moves) {
-		return getAllPositions().findAll {it -> isOpenInMap(moves, it)}
+		getAllPositions().findAll {it -> isOpenInMap(moves, it)}
 	}
 		
-	 List<Position> winningPositions(Player player, Map<Position, Player> moves) {
-		return openPositions(moves)
+	List<Position> winningPositions(Player player, Map<Position, Player> moves) {
+		openPositions(moves)
 				.findAll { position -> isWinnerWithMove(moves, player, position)}
 	}
 }
