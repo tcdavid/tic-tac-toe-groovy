@@ -1,7 +1,5 @@
 package org.tcd.game.tictactoe.controller;
 
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,10 +22,10 @@ import org.springframework.http.HttpStatus;
 @RequestMapping("/api/games")
 public class GameController {
 
-	Logger logger = LoggerFactory.getLogger(GameController.class);
+	Logger logger = LoggerFactory.getLogger(GameController.class)
 
 	@Autowired
-	GameService service;
+	GameService service
 	
 	public GameController() {
 		logger.debug("created");

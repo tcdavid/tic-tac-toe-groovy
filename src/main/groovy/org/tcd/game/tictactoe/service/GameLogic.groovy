@@ -1,10 +1,5 @@
 package org.tcd.game.tictactoe.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.tcd.game.tictactoe.domain.Game;
@@ -161,7 +156,7 @@ public class GameLogic  {
 		Position position = new Position(row, col)
 		if ( isOpen(position)) {
 			return position
-		};
+		}
 		return null
 	}
 	
