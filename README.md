@@ -1,1 +1,1 @@
-# tic-tac-toe-java-angular
+# tic-tac-toe-groovy
