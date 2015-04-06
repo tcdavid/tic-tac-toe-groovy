@@ -230,9 +230,9 @@ public class GameLogic  {
 	@Memoized
 	List<Position> getAllPositions() {
 		List<Position> positions = new ArrayList<Position>();
-		for (int row = 1; row <= 3; row++) {
-			for (int col = 1; col <= 3; col++) {
-				positions.add(new Position(row, col))
+		for (row in 1..3) {
+			for (col in 1..3) {
+				positions << new Position(row, col)
 			}
 		}
 		return positions
