@@ -1,6 +1,6 @@
 package org.tcd.game.tictactoe.domain;
 
-public enum Player {
+enum Player {
 	X,
 	O
 }
