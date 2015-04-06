@@ -9,14 +9,14 @@ import groovy.transform.ToString
 class Game {
 	
 	@Id
-	String id;
+	String id
 
-	List<Move> moves;
-	Level level;
-	Player computerPlaysAs;
-	Status status;
-	Player winner;
-	Long sequence;
+	List<Move> moves
+	Level level
+	Player computerPlaysAs
+	Status status
+	Player winner
+	Long sequence
 	
 	Game() {}
 	
@@ -46,13 +46,11 @@ class Game {
 	}
 	
 	Map<Position, Player> movesAsMap() {
-		
 		Map<Position, Player> map = new HashMap<Position, Player>()
-		
 		moves.each() {
 			map.put(it.position, it.player)
 		}
-		return map;
+		return map
 	}
 
 }
