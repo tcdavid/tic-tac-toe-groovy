@@ -95,7 +95,7 @@ public class GameLogic  {
 	boolean multipleWinningPositions(Position position) {
 		Map<Position, Player> map = game.movesAsMap();
 		map.put(position, turn());
-		return (winningPositions(turn(), map).size() > 1)
+		winningPositions(turn(), map).size() > 1
 	}
 	
 	Position or(Position ...positions){
@@ -264,7 +264,7 @@ public class GameLogic  {
 	boolean isWinnerWithMove(Map<Position, Player> moves, Player player, Position position) {
 		Map<Position, Player> alteredMoves = new HashMap<Position, Player>(moves)
 		alteredMoves.put(position, player)
-		return getWinningCombos().any { combo -> matches(alteredMoves, player, combo)}
+		getWinningCombos().any { combo -> matches(alteredMoves, player, combo)}
 	}
 	
 	boolean isOpenInMap(Map<Position, Player> moves, Position position) {
