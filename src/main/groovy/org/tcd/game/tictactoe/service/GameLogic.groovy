@@ -242,16 +242,16 @@ public class GameLogic  {
 	static List<List<Position>> getWinningCombos() {
 		List<List<Position>> wins = new ArrayList<List<Position>>()
 		
-		wins.add(asList(new Position(1,1), new Position(1,2), new Position(1,3)))
-		wins.add(asList(new Position(2,1), new Position(2,2), new Position(2,3)))
-		wins.add(asList(new Position(3,1), new Position(3,2), new Position(3,3)))
+		wins << [new Position(1,1), new Position(1,2), new Position(1,3)]
+		wins << [new Position(2,1), new Position(2,2), new Position(2,3)]
+		wins << [new Position(3,1), new Position(3,2), new Position(3,3)]
 		
-		wins.add(asList(new Position(1,1), new Position(2,1), new Position(3,1)))
-		wins.add(asList(new Position(1,2), new Position(2,2), new Position(3,2)))
-		wins.add(asList(new Position(1,3), new Position(2,3), new Position(3,3)))
+		wins << [new Position(1,1), new Position(2,1), new Position(3,1)]
+		wins << [new Position(1,2), new Position(2,2), new Position(3,2)]
+		wins << [new Position(1,3), new Position(2,3), new Position(3,3)]
 		
-		wins.add(asList(new Position(1,1), new Position(2,2), new Position(3,3)))
-		wins.add(asList(new Position(3,1), new Position(2,2), new Position(1,3)))
+		wins << [new Position(1,1), new Position(2,2), new Position(3,3)]
+		wins << [new Position(3,1), new Position(2,2), new Position(1,3)]
 		
 		return wins	
 	}
