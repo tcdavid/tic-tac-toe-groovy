@@ -9,6 +9,7 @@ import org.tcd.game.tictactoe.domain.Status;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
+import groovy.transform.Memoized
 
 public class GameLogic  {
 
@@ -226,6 +227,7 @@ public class GameLogic  {
 			openPosition(3,2))	
 	}
 	
+	@Memoized
 	List<Position> getAllPositions() {
 		List<Position> positions = new ArrayList<Position>();
 		for (int row = 1; row <= 3; row++) {
@@ -236,6 +238,7 @@ public class GameLogic  {
 		return positions
 	}
 	
+	@Memoized
 	static List<List<Position>> getWinningCombos() {
 		List<List<Position>> wins = new ArrayList<List<Position>>()
 		
