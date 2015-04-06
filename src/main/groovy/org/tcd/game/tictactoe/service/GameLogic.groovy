@@ -19,11 +19,11 @@ public class GameLogic  {
 		this.game = game
 	}
 	
-	public Move nextMove() {
+	Move nextMove() {
 		new Move(nextPosition(), turn());
 	}
 
-	public Game addMove(Move move) {
+	Game addMove(Move move) {
 		
 		if (isOpen(move.getPosition())) {
 			game.addMove(move)

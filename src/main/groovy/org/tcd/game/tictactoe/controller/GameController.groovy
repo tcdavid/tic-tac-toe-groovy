@@ -20,20 +20,20 @@ import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/api/games")
-public class GameController {
+class GameController {
 
 	Logger logger = LoggerFactory.getLogger(GameController.class)
 
 	@Autowired
 	GameService service
 	
-	public GameController() {
+	GameController() {
 		logger.debug("created");
 	}
 
 	// TODO -  take data in RequestBody of "Options"
 	@RequestMapping(value = "", method = RequestMethod.POST)
-    public Game newGame(@RequestParam(value="level", defaultValue="HARD") Level level, 
+    Game newGame(@RequestParam(value="level", defaultValue="HARD") Level level, 
     					@RequestParam(value="computerPlaysAs", defaultValue="O") Player computerPlaysAs) {
 		
 		logger.debug("newGame: level=" + level + " player=" + computerPlaysAs);
@@ -41,25 +41,25 @@ public class GameController {
     }
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Game> readGames() {
+    List<Game> readGames() {
 		logger.debug("games");
         return service.getGames();
     }
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Game readGame(@PathVariable String id) {
+    Game readGame(@PathVariable String id) {
 		logger.debug("games");
         return service.find(id).get();
     }
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteGame(@PathVariable String id) {
+    void deleteGame(@PathVariable String id) {
 		logger.debug("delete " + id);
         service.delete(id);
     }
 	
 	@RequestMapping(value = "/{id}/turn ", method = RequestMethod.PUT)
-	public Game turn(@PathVariable String id, @RequestBody Move move) {
+	Game turn(@PathVariable String id, @RequestBody Move move) {
 		
 		validateGame(id);
 		
@@ -73,7 +73,7 @@ public class GameController {
 	}
 	
 	@RequestMapping(value = "/{id}/autoturn ", method = RequestMethod.PUT)
-	public Move autoTurn(@PathVariable String id) {
+	Move autoTurn(@PathVariable String id) {
 		
 		validateGame(id);
 		

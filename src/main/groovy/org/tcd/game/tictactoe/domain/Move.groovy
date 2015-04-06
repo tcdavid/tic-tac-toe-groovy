@@ -5,18 +5,18 @@ import groovy.transform.ToString
 
 @ToString
 @EqualsAndHashCode
-public class Move {
+class Move {
 	Position position;
 	Player player;
 		
 	// for marshalling, unmarshalling
-	public Move() {}
+	Move() {}
 	
-	public Move(int row, int column, Player player) {
+	Move(int row, int column, Player player) {
 		this(new Position(row, column), player);
 	}
 	
-	public Move(Position position, Player player) {
+	Move(Position position, Player player) {
 		super();
 		this.position = position;
 		this.player = player;

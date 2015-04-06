@@ -11,8 +11,8 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 @ToString
-@EqualsAndHashCode
-public class Game {
+@EqualsAndHashCode 
+class Game {
 	
 	@Id
 	String id;
@@ -24,9 +24,9 @@ public class Game {
 	Player winner;
 	Long sequence;
 	
-	public Game() {}
+	Game() {}
 	
-	public Game(String id, List<Move> moves, Level level, Player computerPlaysAs, Long sequence) {
+	Game(String id, List<Move> moves, Level level, Player computerPlaysAs, Long sequence) {
 		this.moves = moves;
 		this.level = level;
 		this.computerPlaysAs = computerPlaysAs;
@@ -35,23 +35,23 @@ public class Game {
 		this.sequence = sequence;
 	}
 	
-	public Game( Level level, Player computerPlaysAs, Long sequence) {
+	Game( Level level, Player computerPlaysAs, Long sequence) {
 		this(null, new ArrayList<Move>(), level, computerPlaysAs, sequence);
 	}
 		
-	public void addMove(Move move){
+	void addMove(Move move){
 		moves.add(move);
 	}
 	
-	public Player playerAt(int row, int col) {
+	Player playerAt(int row, int col) {
 		playerAt(new Position(row, col));
 	}
 	
-	public Player playerAt(Position position) {
+	Player playerAt(Position position) {
 		movesAsMap().get(position);
 	}
 	
-	public Map<Position, Player> movesAsMap() {
+	Map<Position, Player> movesAsMap() {
 		
 		Map<Position, Player> map = new HashMap<Position, Player>();
 		
