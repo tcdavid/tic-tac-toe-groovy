@@ -30,7 +30,7 @@ class Game {
 	}
 	
 	Game( Level level, Player computerPlaysAs, Long sequence) {
-		this(null, new ArrayList<Move>(), level, computerPlaysAs, sequence);
+		this(null, new ArrayList<Move>(), level, computerPlaysAs, sequence)
 	}
 		
 	void addMove(Move move){
@@ -38,19 +38,19 @@ class Game {
 	}
 	
 	Player playerAt(int row, int col) {
-		playerAt(new Position(row, col));
+		playerAt(new Position(row, col))
 	}
 	
 	Player playerAt(Position position) {
-		movesAsMap().get(position);
+		movesAsMap().get(position)
 	}
 	
 	Map<Position, Player> movesAsMap() {
 		
-		Map<Position, Player> map = new HashMap<Position, Player>();
+		Map<Position, Player> map = new HashMap<Position, Player>()
 		
-		for (Move move: moves) {
-			map.put(move.getPosition(), move.getPlayer());
+		moves.each() {
+			map.put(it.position, it.player)
 		}
 		return map;
 	}
