@@ -1,12 +1,6 @@
 package org.tcd.game.tictactoe.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.data.annotation.Id;
-
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 

@@ -20,20 +20,20 @@ public class GameService  {
 	
 	public GameService() {}
 	
-	public Game addMove(Game game, Move move) {
+	Game addMove(Game game, Move move) {
 		Game modifiedGame = gameLogic(game).addMove(move)
 		return store.save(modifiedGame)
 	}
 
-	public Move nextMove(Game game) {
+	Move nextMove(Game game) {
 		return gameLogic(game).nextMove()	
 	}
 
-	public Game newGame(Level level, Player computerPlaysAs) {
+	Game newGame(Level level, Player computerPlaysAs) {
 		return store.save(new Game(level, computerPlaysAs, sequence.getAndIncrement()))
 	}
 	
-	public List<Game> getGames() {
+	List<Game> getGames() {
 		return store.findAll()
 	}
 
@@ -49,7 +49,7 @@ public class GameService  {
 		return new GameLogic(game)
 	}
 
-	public void deleteAll() {
+	void deleteAll() {
 		store.deleteAll()
 	}
 
