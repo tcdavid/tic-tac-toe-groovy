@@ -1,7 +1,9 @@
 package org.tcd.game.tictactoe.domain;
 
 import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
 
+@ToString
 @EqualsAndHashCode
 public class Position {
 	int row;
@@ -16,9 +18,4 @@ public class Position {
 		this.column = column;
 	}
 
-	@Override
-	public String toString() {
-		return "Position [row=" + row + ", column=" + column + "]";
-	}
-	
 }

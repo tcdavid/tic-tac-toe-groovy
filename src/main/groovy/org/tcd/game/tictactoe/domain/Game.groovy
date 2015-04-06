@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
-import groovy.transform.EqualsAndHashCode
 
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
+
+@ToString
 @EqualsAndHashCode
 public class Game {
 	
@@ -41,11 +44,11 @@ public class Game {
 	}
 	
 	public Player playerAt(int row, int col) {
-		return playerAt(new Position(row, col));
+		playerAt(new Position(row, col));
 	}
 	
 	public Player playerAt(Position position) {
-		return movesAsMap().get(position);
+		movesAsMap().get(position);
 	}
 	
 	public Map<Position, Player> movesAsMap() {
@@ -58,12 +61,4 @@ public class Game {
 		return map;
 	}
 
-	@Override
-	public String toString() {
-		return "Game [id=" + id + ", moves=" + moves + ", level=" + level
-				+ ", computerPlaysAs=" + computerPlaysAs + ", status=" + status
-				+ ", winner=" + winner + "]";
-	}
-
-	
 }

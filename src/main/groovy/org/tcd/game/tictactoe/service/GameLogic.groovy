@@ -1,7 +1,5 @@
 package org.tcd.game.tictactoe.service;
 
-import java.util.stream.Stream;
-
 import org.tcd.game.tictactoe.domain.Game;
 import org.tcd.game.tictactoe.domain.Move;
 import org.tcd.game.tictactoe.domain.Level;
@@ -149,7 +147,6 @@ public class GameLogic  {
 			default :
 				return firstOpen()
 			}
-
 	}
 		
 	Position openPosition(int row, int col) {
@@ -226,8 +223,7 @@ public class GameLogic  {
 		or( openPosition(1,2),
 			openPosition(2,1),
 			openPosition(2,3),
-			openPosition(3,2))
-				
+			openPosition(3,2))	
 	}
 	
 	List<Position> getAllPositions() {
@@ -274,7 +270,6 @@ public class GameLogic  {
 	boolean isOpenInMap(Map<Position, Player> moves, Position position) {
 		 moves.get(position) == null
 	}
-	
 	
 	List<Position> openPositions(Map<Position, Player> moves) {
 		getAllPositions().findAll {it -> isOpenInMap(moves, it)}
