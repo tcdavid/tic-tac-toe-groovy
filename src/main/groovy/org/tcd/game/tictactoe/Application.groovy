@@ -14,12 +14,12 @@ import org.tcd.game.tictactoe.service.GameService;
 
 @SpringBootApplication
 public class Application  {
-	
-	Logger logger = LoggerFactory.getLogger(Application.class)
-	
-	@Autowired
-	GameService service;
-	
+
+    Logger logger = LoggerFactory.getLogger(Application.class)
+
+    @Autowired
+    GameService service;
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args)
     }

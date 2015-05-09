@@ -13,44 +13,43 @@ import org.tcd.game.tictactoe.domain.Player;
 @Service
 public class GameService  {
 
-	private AtomicLong sequence = new AtomicLong(1)
-	
-	@Autowired
-	GameRepository store
-	
-	public GameService() {}
-	
-	Game addMove(Game game, Move move) {
-		Game modifiedGame = gameLogic(game).addMove(move)
-		return store.save(modifiedGame)
-	}
+    private AtomicLong sequence = new AtomicLong(1)
 
-	Move nextMove(Game game) {
-		return gameLogic(game).nextMove()	
-	}
+    @Autowired
+    GameRepository store
 
-	Game newGame(Level level, Player computerPlaysAs) {
-		return store.save(new Game(level, computerPlaysAs, sequence.getAndIncrement()))
-	}
-	
-	List<Game> getGames() {
-		return store.findAll()
-	}
+    public GameService() {}
 
-	public Optional<Game> find(String id) {
-		return Optional.ofNullable(store.findOne(id))
-	}
-	
-	public void delete(String id) {
-		store.delete(id)
-	}
+    Game addMove(Game game, Move move) {
+        Game modifiedGame = gameLogic(game).addMove(move)
+        return store.save(modifiedGame)
+    }
 
-	protected GameLogic gameLogic (Game game) {
-		return new GameLogic(game)
-	}
+    Move nextMove(Game game) {
+        return gameLogic(game).nextMove()
+    }
 
-	void deleteAll() {
-		store.deleteAll()
-	}
+    Game newGame(Level level, Player computerPlaysAs) {
+        return store.save(new Game(level, computerPlaysAs, sequence.getAndIncrement()))
+    }
 
+    List<Game> getGames() {
+        return store.findAll()
+    }
+
+    public Optional<Game> find(String id) {
+        return Optional.ofNullable(store.findOne(id))
+    }
+
+    public void delete(String id) {
+        store.delete(id)
+    }
+
+    protected GameLogic gameLogic (Game game) {
+        return new GameLogic(game)
+    }
+
+    void deleteAll() {
+        store.deleteAll()
+    }
 }
