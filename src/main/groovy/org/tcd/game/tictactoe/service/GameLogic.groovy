@@ -107,43 +107,43 @@ public class GameLogic  {
         switch (game.getLevel()) {
             case Level.HARD:
                 return or (
-                win(),
-                block(),
-                fork(),
-                blockFork(),
-                firstMove(),
-                center(),
-                oppositeCorner(),
-                sandwich(),
-                emptyCorner(),
-                emptySide(),
-                firstOpen())
+                            win(),
+                            block(),
+                            fork(),
+                            blockFork(),
+                            firstMove(),
+                            center(),
+                            oppositeCorner(),
+                            sandwich(),
+                            emptyCorner(),
+                            emptySide(),
+                            firstOpen())
 
             case Level.MEDIUM_HARD:
                 return or (
-                win(),
-                block(),
-                firstMove(),
-                center(),
-                oppositeCorner(),
-                sandwich(),
-                emptyCorner(),
-                emptySide(),
-                firstOpen())
+                            win(),
+                            block(),
+                            firstMove(),
+                            center(),
+                            oppositeCorner(),
+                            sandwich(),
+                            emptyCorner(),
+                            emptySide(),
+                            firstOpen())
 
             case Level.MEDIUM:
                 return or (
-                win(),
-                block(),
-                emptyCorner(),
-                emptySide(),
-                firstOpen())
+                            win(),
+                            block(),
+                            emptyCorner(),
+                            emptySide(),
+                            firstOpen())
 
             case Level.EASY:
                 return or (
-                emptyCorner(),
-                emptySide(),
-                firstOpen())
+                            emptyCorner(),
+                            emptySide(),
+                            firstOpen())
 
             default :
                 return firstOpen()
@@ -196,10 +196,10 @@ public class GameLogic  {
     }
 
     Position oppositeCorner() {
-        or (	oppositeOpen(new Position(1,1), new Position(3,3)),
-                oppositeOpen(new Position(3,3), new Position(1,1)),
-                oppositeOpen(new Position(3,1), new Position(1,3)),
-                oppositeOpen(new Position(1,3), new Position(3,1)))
+        or (oppositeOpen(new Position(1,1), new Position(3,3)),
+            oppositeOpen(new Position(3,3), new Position(1,1)),
+            oppositeOpen(new Position(3,1), new Position(1,3)),
+            oppositeOpen(new Position(1,3), new Position(3,1)))
     }
 
     Position center() {
@@ -208,23 +208,23 @@ public class GameLogic  {
 
     Position sandwich() {
         or ( sandwichOpen(new Position(3,3), new Position(1,1)),
-                sandwichOpen(new Position(1,1), new Position(3,3)),
-                sandwichOpen(new Position(3,1), new Position(1,3)),
-                sandwichOpen(new Position(1,3), new Position(3,1)))
+             sandwichOpen(new Position(1,1), new Position(3,3)),
+             sandwichOpen(new Position(3,1), new Position(1,3)),
+             sandwichOpen(new Position(1,3), new Position(3,1)))
     }
 
     Position emptyCorner() {
         or( openPosition(1,1),
-                openPosition(1,3),
-                openPosition(3,1),
-                openPosition(3,3))
+            openPosition(1,3),
+            openPosition(3,1),
+            openPosition(3,3))
     }
 
     Position emptySide() {
         or( openPosition(1,2),
-                openPosition(2,1),
-                openPosition(2,3),
-                openPosition(3,2))
+            openPosition(2,1),
+            openPosition(2,3),
+            openPosition(3,2))
     }
 
     @Memoized
