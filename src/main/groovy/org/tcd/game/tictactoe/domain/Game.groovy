@@ -29,7 +29,7 @@ class Game {
         this.sequence = sequence;
     }
 
-    Game( Level level, Player computerPlaysAs, Long sequence) {
+    Game(Level level, Player computerPlaysAs, Long sequence) {
         this(null, new ArrayList<Move>(), level, computerPlaysAs, sequence)
     }
 
