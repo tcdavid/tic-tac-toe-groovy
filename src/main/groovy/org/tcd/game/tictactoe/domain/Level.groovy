@@ -1,4 +1,4 @@
-package org.tcd.game.tictactoe.domain;
+package org.tcd.game.tictactoe.domain
 
 enum Level {
     EASY,

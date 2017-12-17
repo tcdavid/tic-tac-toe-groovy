@@ -1,8 +1,8 @@
-package org.tcd.game.tictactoe.domain;
+package org.tcd.game.tictactoe.domain
 
-import org.springframework.data.annotation.Id;
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
+import org.springframework.data.annotation.Id
 
 @ToString
 @EqualsAndHashCode
