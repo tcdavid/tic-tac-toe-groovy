@@ -18,11 +18,11 @@ angular.module('services')
     
     dataFactory.getNextMove = function (id) {
     	return $http.put(urlBase + '/'+ id +'/autoturn');
-    }
+    };
     
     dataFactory.sendUserMove = function (id, move) {
     	return $http.put(urlBase + '/'+ id +'/turn', move);
-    }
+    };
     
     dataFactory.createNewGame = function (level, computerPlaysAs) {
     	var postData = {'level': level, 'computerPlaysAs': computerPlaysAs.toUpperCase()};
@@ -30,7 +30,7 @@ angular.module('services')
             headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
             params: postData
         });
-    }
+    };
 
     return dataFactory;
 }]);

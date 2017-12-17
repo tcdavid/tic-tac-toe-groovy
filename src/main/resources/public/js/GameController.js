@@ -94,7 +94,7 @@ function GameController(DataFactory, $rootScope, $scope) {
     		}
     	}
     	return false;
-    }
+    };
     
     vm.checkDraw = function() {
     	
@@ -104,7 +104,7 @@ function GameController(DataFactory, $rootScope, $scope) {
     		}
     	}
     	return false;
-    }
+    };
    
     vm.setUserTurn = function() {
         if (vm.checkWin(vm.systemLetter)) {
@@ -131,7 +131,7 @@ function GameController(DataFactory, $rootScope, $scope) {
     		}
     		vm.setUserTurn();
     	});
-    };
+    }
     
     function getNextMove() {
     	DataFactory.getNextMove(vm.gameId).success(function(data) {
@@ -144,7 +144,7 @@ function GameController(DataFactory, $rootScope, $scope) {
 	           
 	        checkGameStatus();
 	    });
-    };
+    }
     
     function newGame( ) {
     	DataFactory.createNewGame(vm.level, vm.systemLetter).success(function(data) {
@@ -157,7 +157,7 @@ function GameController(DataFactory, $rootScope, $scope) {
            
            $rootScope.$broadcast("gamesRefresh");
 	    });
-    };
+    }
     
     vm.startGame = function() {
     	vm.gameover = false;
@@ -225,6 +225,6 @@ function GameController(DataFactory, $rootScope, $scope) {
 		});
 		
 	});
-};
+}
 
 

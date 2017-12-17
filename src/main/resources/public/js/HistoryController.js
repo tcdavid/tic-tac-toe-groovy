@@ -37,4 +37,4 @@ function HistoryController($scope, DataFactory, $rootScope) {
 	$scope.$on("gamesRefresh",function () {
 		vm.getGames();
 	});
-};
+}
